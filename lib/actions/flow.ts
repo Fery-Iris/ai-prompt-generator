@@ -15,7 +15,7 @@ export async function detectIntentAndGenerateQuestions(originalPrompt: string, m
 
     // Use Gemini to detect intent and generate 3 follow-up questions
     const { object } = await generateObject({
-      model: google("gemini-2.0-flash"),
+      model: google("gemini-3.5-flash"),
       schema: z.object({
         intent: z.string().describe("The categorized intent of the prompt (e.g., Coding, Copywriting, Image Generation, Data Analysis)"),
         questions: z.array(z.string()).min(2).max(4).describe("3 follow-up questions to ask the user to gather constraints, audience, goals, etc. to improve the prompt.")

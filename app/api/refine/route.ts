@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    const { originalPrompt, intent, answers, previousFeedback } = await req.json();
+    const { prompt: originalPrompt, intent, answers, previousFeedback } = await req.json();
 
     if (!originalPrompt || !intent) {
       return new Response("Missing required fields", { status: 400 });
@@ -51,7 +51,7 @@ Follow these rules for the final prompt:
 5. ONLY output the final optimized prompt. Do NOT include introductory conversational text like "Here is the optimized prompt:". Ensure the prompt is ready to be copied and pasted directly into an AI.`;
 
     const result = await streamText({
-      model: google("gemini-2.0-flash"),
+      model: google("gemini-3.5-flash"),
       system: systemPrompt,
       prompt: `User's Draft Prompt:\n"${originalPrompt}"`,
     });

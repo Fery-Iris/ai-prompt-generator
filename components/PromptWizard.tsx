@@ -29,6 +29,7 @@ export default function PromptWizard({ models }: { models: any[] }) {
 
   const { completion, complete, isLoading: isGenerating, setCompletion } = useCompletion({
     api: "/api/refine",
+    streamProtocol: "text",
   });
 
   const handleStart = async (e: React.FormEvent) => {

@@ -35,7 +35,7 @@ Follow these rules for the final prompt:
 
     // 4. Generate stream using Gemini 1.5 Flash
     const result = await streamText({
-      model: google("gemini-1.5-flash"),
+      model: google("gemini-3.5-flash"),
       system: systemPrompt,
       prompt: `User's Draft Prompt:\n${originalPrompt}`,
     });

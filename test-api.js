@@ -4,7 +4,7 @@ const https = require('https');
 const key = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 console.log('Using key:', key?.substring(0, 12) + '...');
 
-const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + key;
+const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=' + key;
 const body = JSON.stringify({ contents: [{ parts: [{ text: 'say hello in one word' }] }] });
 
 const req = https.request(url, { method: 'POST', headers: { 'Content-Type': 'application/json' } }, (res) => {
