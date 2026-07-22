@@ -75,3 +75,34 @@ export async function createPromptAction(prevState: any, formData: FormData) {
     return { error: "Failed to create prompt. Please try again." };
   }
 }
+
+export async function getPromptById(promptId: string) {
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return null;
+    }
+
+    const prompt = await prisma.prompt.findUnique({
+      where: { id: promptId, userId: session.user.id },
+      include: {
+        model: true,
+        answers: {
+          include: { question: true },
+          orderBy: { question: { questionOrder: "asc" } },
+        },
+        revisions: {
+          orderBy: { revisionNumber: "asc" },
+        },
+        feedbacks: {
+          orderBy: { createdAt: "asc" },
+        },
+      },
+    });
+
+    return prompt;
+  } catch (error) {
+    console.error("Failed to fetch prompt:", error);
+    return null;
+  }
+}
