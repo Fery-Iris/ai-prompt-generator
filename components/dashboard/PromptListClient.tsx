@@ -138,9 +138,11 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
   }, [prompts, searchQuery, selectedStatus, selectedModel, sortBy]);
 
   // Handle Copy Prompt
-  const handleCopy = (e: React.MouseEvent, prompt: PromptItem) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const handleCopy = (e: React.MouseEvent | undefined, prompt: PromptItem) => {
+    if (e?.stopPropagation) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     const textToCopy = prompt.finalPrompt || prompt.originalPrompt;
     if (!textToCopy) return;
 
@@ -150,9 +152,11 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
   };
 
   // Selection toggle
-  const toggleSelectPrompt = (e: React.MouseEvent, id: string) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const toggleSelectPrompt = (id: string, e?: React.MouseEvent) => {
+    if (e?.stopPropagation) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     setSelectedIds((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
@@ -167,9 +171,11 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
   };
 
   // Open single delete modal
-  const openSingleDeleteModal = (e: React.MouseEvent, prompt: PromptItem) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const openSingleDeleteModal = (e: React.MouseEvent | undefined, prompt: PromptItem) => {
+    if (e?.stopPropagation) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     setDeleteModal({
       isOpen: true,
       targetId: prompt.id,
@@ -495,7 +501,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                 key={prompt.id}
                 onClick={() => {
                   if (isSelectMode) {
-                    toggleSelectPrompt({} as any, prompt.id);
+                    toggleSelectPrompt(prompt.id);
                   }
                 }}
                 className={`group relative bg-white border rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between hover:shadow-md ${
@@ -510,7 +516,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                     <div className="flex items-center gap-2">
                       {isSelectMode && (
                         <button
-                          onClick={(e) => toggleSelectPrompt(e, prompt.id)}
+                          onClick={(e) => toggleSelectPrompt(prompt.id, e)}
                           className={`text-slate-400 hover:text-blue-600 transition-colors`}
                         >
                           {isSelected ? (
@@ -619,7 +625,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                 <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
                   {isSelectMode && (
                     <button
-                      onClick={(e) => toggleSelectPrompt(e, prompt.id)}
+                      onClick={(e) => toggleSelectPrompt(prompt.id, e)}
                       className="mt-0.5 sm:mt-0 text-slate-400 hover:text-blue-600 transition-colors"
                     >
                       {isSelected ? (
