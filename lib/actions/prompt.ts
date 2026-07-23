@@ -106,3 +106,52 @@ export async function getPromptById(promptId: string) {
     return null;
   }
 }
+
+export async function deletePromptAction(promptId: string) {
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return { error: "Unauthorized" };
+    }
+
+    await prisma.prompt.deleteMany({
+      where: {
+        id: promptId,
+        userId: session.user.id,
+      },
+    });
+
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete prompt:", error);
+    return { error: "Failed to delete prompt. Please try again." };
+  }
+}
+
+export async function deleteMultiplePromptsAction(promptIds: string[]) {
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return { error: "Unauthorized" };
+    }
+
+    if (!promptIds || promptIds.length === 0) {
+      return { error: "No prompts selected for deletion." };
+    }
+
+    await prisma.prompt.deleteMany({
+      where: {
+        id: { in: promptIds },
+        userId: session.user.id,
+      },
+    });
+
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete prompts:", error);
+    return { error: "Failed to delete selected prompts. Please try again." };
+  }
+}
+
