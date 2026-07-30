@@ -189,12 +189,19 @@ html {
 .hero-wave span {
   content: "";
   position: absolute;
-  width: 325vh;
-  height: 325vh;
+  width: var(--wave-size, 325vh);
+  height: var(--wave-size, 325vh);
   top: 0;
   left: 50%;
-  transform: translate(-50%, -75%);
+  transform: translate(-50%, var(--wave-translate-y, -75%));
   transition: background 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .hero-wave span {
+    --wave-size: 200vh;
+    --wave-translate-y: -82%;
+  }
 }
 
 .hero-wave span:nth-child(1) {
@@ -217,10 +224,10 @@ html {
 
 @keyframes hero-wave-animate {
   0% {
-    transform: translate(-50%, -75%) rotate(0deg);
+    transform: translate(-50%, var(--wave-translate-y, -75%)) rotate(0deg);
   }
   100% {
-    transform: translate(-50%, -75%) rotate(360deg);
+    transform: translate(-50%, var(--wave-translate-y, -75%)) rotate(360deg);
   }
 }
 
