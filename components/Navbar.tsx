@@ -1,8 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0A0F24]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +34,14 @@ export default function Navbar() {
           </nav>
           
           <div className="flex items-center space-x-4">
-            <AnimatedThemeToggler />
+            {mounted ? (
+              <AnimatedThemeToggler 
+                theme={resolvedTheme === "dark" ? "dark" : "light"}
+                onThemeChange={(newTheme) => setTheme(newTheme)}
+              />
+            ) : (
+              <div className="w-6 h-6" />
+            )}
             <Link href="/login" className="hidden sm:inline-flex text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-[var(--color-foreground)] transition-colors">
               Log in
             </Link>
