@@ -267,7 +267,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
           <Link
             href="/dashboard/new"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl text-white dark:text-[#0A0F24] bg-[var(--color-primary)] hover:bg-blue-700 dark:hover:opacity-90 transition-all shadow-md shadow-blue-500/20 dark:shadow-[#FFF078]/10 hover:shadow-lg active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl text-white dark:text-white bg-[var(--color-primary)] hover:bg-blue-700 dark:hover:opacity-90 transition-all shadow-md shadow-blue-500/20 dark:shadow-[#2563EB]/10 hover:shadow-lg active:scale-95"
           >
             <PlusCircle size={18} />
             Create New

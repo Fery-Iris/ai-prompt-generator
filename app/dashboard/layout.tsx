@@ -1,6 +1,7 @@
 import { auth, signOut } from "@/auth";
 import Link from "next/link";
-import { Sparkles, LayoutDashboard, PlusCircle, LogOut } from "lucide-react";
+import Image from "next/image";
+import { LayoutDashboard, PlusCircle, LogOut } from "lucide-react";
 import { redirect } from "next/navigation";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
@@ -20,9 +21,7 @@ export default async function DashboardLayout({
       <aside className="w-full md:w-64 bg-white dark:bg-[#0D1230] border-r border-slate-200 dark:border-white/[0.06] flex flex-col transition-colors duration-300">
         <div className="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-white/[0.06]">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center text-white dark:text-[#0A0F24] shadow-sm">
-              <Sparkles size={16} />
-            </div>
+            <Image src="/Logo.png" alt="PromptGen Logo" width={32} height={32} className="w-8 h-8 rounded-lg object-contain shadow-sm" />
             <span className="font-bold text-lg text-[var(--color-foreground)]">PromptGen</span>
           </Link>
           <AnimatedThemeToggler className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/[0.05] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.1] transition-colors" />
@@ -38,7 +37,7 @@ export default async function DashboardLayout({
           </Link>
           <Link 
             href="/dashboard/new" 
-            className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg text-white dark:text-[#0A0F24] bg-[var(--color-primary)] hover:bg-blue-700 dark:hover:opacity-90 transition-colors shadow-sm shadow-blue-500/20 dark:shadow-[#FFF078]/10"
+            className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg text-white dark:text-white bg-[var(--color-primary)] hover:bg-blue-700 dark:hover:opacity-90 transition-colors shadow-sm shadow-blue-500/20 dark:shadow-[#2563EB]/10"
           >
             <PlusCircle size={18} />
             New Prompt

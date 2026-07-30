@@ -55,7 +55,7 @@ export default function Features() {
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${feature.bgColor} ${feature.color}`}>
                   <Icon size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-[#111111] dark:text-white mb-3">
+                <h3 className="text-xl font-normal text-[#111111] dark:text-white mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-[#666666] dark:text-slate-400 leading-relaxed">
