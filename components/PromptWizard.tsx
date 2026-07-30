@@ -168,7 +168,7 @@ export default function PromptWizard({ models, resumeData }: { models: any[]; re
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col md:flex-row min-h-[37.5rem]">
       
       {/* Left Column: Interactive Flow */}
       <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col border-r border-slate-100">
@@ -208,7 +208,7 @@ export default function PromptWizard({ models, resumeData }: { models: any[]; re
                   value={originalPrompt}
                   onChange={(e) => setOriginalPrompt(e.target.value)}
                   placeholder="e.g. Write an email for marketing..."
-                  className="w-full flex-1 min-h-[150px] px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
+                  className="w-full flex-1 min-h-[9.375rem] px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
                   required
                 />
               </div>
@@ -301,7 +301,7 @@ export default function PromptWizard({ models, resumeData }: { models: any[]; re
                       value={currentFeedback}
                       onChange={(e) => setCurrentFeedback(e.target.value)}
                       placeholder="e.g. Make it sound more professional, add a section for constraints..."
-                      className="w-full min-h-[100px] px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
+                      className="w-full min-h-[6.25rem] px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
                     />
                     <div className="flex gap-3">
                       <button onClick={() => setShowFeedbackInput(false)} className="flex-1 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl font-semibold hover:bg-slate-50 transition-all">

@@ -539,7 +539,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                       </span>
                     </div>
 
-                    <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/60 truncate max-w-[120px]">
+                    <span className="text-[0.6875rem] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/60 truncate max-w-[7.5rem]">
                       {prompt.model?.name || "AI Model"}
                     </span>
                   </div>
@@ -646,7 +646,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                       </Link>
 
                       <span
-                        className={`px-2 py-0.5 text-[10px] font-semibold rounded-full border ${
+                        className={`px-2 py-0.5 text-[0.625rem] font-semibold rounded-full border ${
                           prompt.status === "COMPLETED"
                             ? "bg-emerald-50 text-emerald-700 border-emerald-200/60"
                             : prompt.status === "DRAFT"
@@ -657,7 +657,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                         {prompt.status}
                       </span>
 
-                      <span className="text-[10px] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                      <span className="text-[0.625rem] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
                         {prompt.model?.name}
                       </span>
                     </div>

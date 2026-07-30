@@ -18,6 +18,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 16px; /* Mobile devices */
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px; /* Tablet & Small Laptops (~112.5%) */
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 20px; /* Standard Laptops & Desktops (125%) */
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 22px; /* Large Monitors (~137.5%) */
+  }
+}
+
 /* Wavy Animation from User - Updated to White */
 .hero-wave-section {
   position: relative;

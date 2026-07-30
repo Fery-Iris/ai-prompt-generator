@@ -41,14 +41,14 @@ export default function FAQ() {
     <section id="faq" className="w-full flex flex-col font-sans">
       {/* Top Dark Section */}
       <div className="bg-[#05051a] w-full py-32 flex items-center justify-center">
-        <h2 className="text-6xl sm:text-[80px] font-normal text-white tracking-tight">
+        <h2 className="text-6xl sm:text-[5rem] font-normal text-white tracking-tight">
           FAQ
         </h2>
       </div>
 
       {/* Bottom White Section */}
       <div className="bg-white w-full py-16 sm:py-24">
-        <div className="max-w-[800px] mx-auto px-4 sm:px-6">
+        <div className="max-w-[50rem] mx-auto px-4 sm:px-6">
           <div className="flex flex-col gap-3">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
@@ -61,7 +61,7 @@ export default function FAQ() {
                     onClick={() => toggleFaq(index)}
                     className="w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-slate-50 transition-colors rounded-md"
                   >
-                    <span className="text-[15px] font-normal text-[#111111]">
+                    <span className="text-[0.9375rem] font-normal text-[#111111]">
                       {faq.question}
                     </span>
                     <ChevronDown 
@@ -71,7 +71,7 @@ export default function FAQ() {
                   </button>
                   
                   {isOpen && (
-                    <div className="px-6 pb-5 text-[#666666] text-[15px] leading-relaxed">
+                    <div className="px-6 pb-5 text-[#666666] text-[0.9375rem] leading-relaxed">
                       {faq.answer}
                     </div>
                   )}
