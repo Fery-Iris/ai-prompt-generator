@@ -238,13 +238,13 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
       {/* Header section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
             My Prompts
-            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-[var(--color-primary)] border border-blue-100">
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-[var(--color-primary)] border border-blue-100 dark:border-blue-800/50">
               {metrics.total}
             </span>
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
             Kelola, sortir, dan akses prompt yang telah Anda buat secara interaktif.
           </p>
         </div>
@@ -257,8 +257,8 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
             }}
             className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-all ${
               isSelectMode
-                ? "bg-slate-900 text-white border-slate-900 shadow-sm"
-                : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+                ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm"
+                : "bg-white dark:bg-white/[0.05] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/[0.1] hover:bg-slate-50 dark:hover:bg-white/[0.1]"
             }`}
           >
             {isSelectMode ? <CheckSquare size={16} /> : <Square size={16} />}
@@ -267,7 +267,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
           <Link
             href="/dashboard/new"
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl text-white bg-[var(--color-primary)] hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl text-white dark:text-[#0A0F24] bg-[var(--color-primary)] hover:bg-blue-700 dark:hover:opacity-90 transition-all shadow-md shadow-blue-500/20 dark:shadow-[#FFF078]/10 hover:shadow-lg active:scale-95"
           >
             <PlusCircle size={18} />
             Create New
@@ -277,45 +277,45 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
       {/* Metrics Summary Bar */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+        <div className="bg-white dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/[0.08] rounded-2xl p-4 flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[var(--color-primary)] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-[var(--color-primary)] flex items-center justify-center font-bold">
               <FileText size={20} />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500">Total Prompt</p>
-              <p className="text-xl font-bold text-slate-900">{metrics.total}</p>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Total Prompt</p>
+              <p className="text-xl font-bold text-slate-900 dark:text-white">{metrics.total}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+        <div className="bg-white dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/[0.08] rounded-2xl p-4 flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
               <Sparkles size={20} />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500">Selesai (Completed)</p>
-              <p className="text-xl font-bold text-emerald-600">{metrics.completed}</p>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Selesai (Completed)</p>
+              <p className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{metrics.completed}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+        <div className="bg-white dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/[0.08] rounded-2xl p-4 flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
               <Clock size={20} />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500">Draf & In Progress</p>
-              <p className="text-xl font-bold text-amber-600">{metrics.drafts}</p>
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Draf & In Progress</p>
+              <p className="text-xl font-bold text-amber-600 dark:text-amber-400">{metrics.drafts}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Interactive Controls Toolbar */}
-      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm space-y-3">
+      <div className="bg-white dark:bg-white/[0.03] border border-slate-200/90 dark:border-white/[0.08] rounded-2xl p-4 shadow-sm space-y-3">
         <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
           {/* Search bar */}
           <div className="relative flex-1">
@@ -325,7 +325,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
               placeholder="Cari berdasarkan judul, intent, atau model..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-10 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[var(--color-primary)] transition-all"
+              className="w-full pl-10 pr-10 py-2 text-sm bg-slate-50 dark:bg-white/[0.05] border border-slate-200 dark:border-white/[0.1] rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[var(--color-primary)] transition-all"
             />
             {searchQuery && (
               <button
@@ -340,12 +340,12 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
           {/* Filter & Sort Controls */}
           <div className="flex flex-wrap items-center gap-2">
             {/* Status Filter */}
-            <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+            <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-white/[0.05] border border-slate-200 dark:border-white/[0.1] px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-300">
               <Filter size={14} className="text-slate-400" />
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 cursor-pointer pr-1"
+                className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 dark:text-slate-200 cursor-pointer pr-1"
               >
                 <option value="ALL">Semua Status</option>
                 <option value="COMPLETED">Completed</option>
@@ -356,12 +356,12 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
             {/* Model Filter */}
             {uniqueModels.length > 1 && (
-              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+              <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-white/[0.05] border border-slate-200 dark:border-white/[0.1] px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-300">
                 <Sparkles size={14} className="text-slate-400" />
                 <select
                   value={selectedModel}
                   onChange={(e) => setSelectedModel(e.target.value)}
-                  className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 cursor-pointer pr-1"
+                  className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 dark:text-slate-200 cursor-pointer pr-1"
                 >
                   <option value="ALL">Semua Model</option>
                   {uniqueModels.map((m) => (
@@ -374,12 +374,12 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
             )}
 
             {/* Sort Selector */}
-            <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700">
+            <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-white/[0.05] border border-slate-200 dark:border-white/[0.1] px-3 py-1.5 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-300">
               <ArrowUpDown size={14} className="text-slate-400" />
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 cursor-pointer pr-1"
+                className="bg-transparent border-none outline-none text-xs font-semibold text-slate-800 dark:text-slate-200 cursor-pointer pr-1"
               >
                 <option value="newest">Terbaru</option>
                 <option value="oldest">Terlama</option>
@@ -389,14 +389,14 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 ml-auto sm:ml-0">
+            <div className="flex items-center bg-slate-100 dark:bg-white/[0.05] p-1 rounded-xl border border-slate-200 dark:border-white/[0.1] ml-auto sm:ml-0">
               <button
                 onClick={() => setViewMode("grid")}
                 title="Tampilan Grid"
                 className={`p-1.5 rounded-lg transition-all ${
                   viewMode === "grid"
-                    ? "bg-white text-slate-900 shadow-xs"
-                    : "text-slate-500 hover:text-slate-800"
+                    ? "bg-white dark:bg-white/[0.1] text-slate-900 dark:text-white shadow-xs"
+                    : "text-slate-500 hover:text-slate-800 dark:hover:text-white"
                 }`}
               >
                 <LayoutGrid size={16} />
@@ -406,8 +406,8 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                 title="Tampilan List"
                 className={`p-1.5 rounded-lg transition-all ${
                   viewMode === "list"
-                    ? "bg-white text-slate-900 shadow-xs"
-                    : "text-slate-500 hover:text-slate-800"
+                    ? "bg-white dark:bg-white/[0.1] text-slate-900 dark:text-white shadow-xs"
+                    : "text-slate-500 hover:text-slate-800 dark:hover:text-white"
                 }`}
               >
                 <List size={16} />
@@ -454,12 +454,12 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
       {/* Prompts Display (Grid / List / Empty) */}
       {filteredPrompts.length === 0 ? (
-        <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center shadow-xs space-y-4">
-          <div className="w-16 h-16 mx-auto bg-slate-100/80 rounded-2xl flex items-center justify-center text-slate-400">
+        <div className="bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] rounded-3xl p-12 text-center shadow-xs space-y-4">
+          <div className="w-16 h-16 mx-auto bg-slate-100/80 dark:bg-white/[0.05] rounded-2xl flex items-center justify-center text-slate-400">
             {prompts.length === 0 ? <FileText size={32} /> : <Search size={32} />}
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               {prompts.length === 0 ? "Belum ada prompt" : "Tidak ditemukan prompt yang cocok"}
             </h3>
             <p className="text-sm text-slate-500 max-w-md mx-auto mt-1">
@@ -504,10 +504,10 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                     toggleSelectPrompt(prompt.id);
                   }
                 }}
-                className={`group relative bg-white border rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between hover:shadow-md ${
+                className={`group relative bg-white dark:bg-white/[0.03] border rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between hover:shadow-md dark:hover:shadow-[#D946EF]/5 ${
                   isSelected
-                    ? "border-blue-500 bg-blue-50/20 ring-2 ring-blue-500/20 shadow-sm"
-                    : "border-slate-200/90 hover:border-slate-300"
+                    ? "border-blue-500 bg-blue-50/20 dark:bg-blue-900/10 ring-2 ring-blue-500/20 shadow-sm"
+                    : "border-slate-200/90 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/[0.15]"
                 }`}
               >
                 <div>
@@ -539,7 +539,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                       </span>
                     </div>
 
-                    <span className="text-[0.6875rem] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/60 truncate max-w-[7.5rem]">
+                    <span className="text-[0.6875rem] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-white/[0.08] px-2 py-0.5 rounded-md border border-slate-200/60 dark:border-white/[0.1] truncate max-w-[7.5rem]">
                       {prompt.model?.name || "AI Model"}
                     </span>
                   </div>
@@ -549,19 +549,19 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                     href={`/dashboard/${prompt.id}`}
                     className="block group-hover:text-[var(--color-primary)] transition-colors"
                   >
-                    <h3 className="text-base font-bold text-slate-900 line-clamp-1 mb-1.5">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white line-clamp-1 mb-1.5">
                       {prompt.title}
                     </h3>
                   </Link>
 
                   {/* Intent / Snippet */}
-                  <p className="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed h-9">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed h-9">
                     {prompt.intent || prompt.originalPrompt}
                   </p>
                 </div>
 
                 {/* Footer Bar */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 mt-2">
+                <div className="pt-3 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between text-xs text-slate-400 mt-2">
                   <div className="flex items-center gap-1.5 text-slate-400 font-medium">
                     <Clock size={13} />
                     {new Date(prompt.createdAt).toLocaleDateString("id-ID", {
@@ -611,15 +611,15 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
         </div>
       ) : (
         /* LIST VIEW */
-        <div className="bg-white border border-slate-200/90 rounded-2xl divide-y divide-slate-100 overflow-hidden shadow-xs">
+        <div className="bg-white dark:bg-white/[0.03] border border-slate-200/90 dark:border-white/[0.08] rounded-2xl divide-y divide-slate-100 dark:divide-white/[0.06] overflow-hidden shadow-xs">
           {filteredPrompts.map((prompt) => {
             const isSelected = selectedIds.includes(prompt.id);
 
             return (
               <div
                 key={prompt.id}
-                className={`p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors hover:bg-slate-50/80 ${
-                  isSelected ? "bg-blue-50/30" : ""
+                className={`p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors hover:bg-slate-50/80 dark:hover:bg-white/[0.03] ${
+                  isSelected ? "bg-blue-50/30 dark:bg-blue-900/10" : ""
                 }`}
               >
                 <div className="flex items-start sm:items-center gap-3 flex-1 min-w-0">
@@ -640,7 +640,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                     <div className="flex items-center gap-2 flex-wrap">
                       <Link
                         href={`/dashboard/${prompt.id}`}
-                        className="font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors text-sm sm:text-base truncate"
+                        className="font-bold text-slate-900 dark:text-white hover:text-[var(--color-primary)] transition-colors text-sm sm:text-base truncate"
                       >
                         {prompt.title}
                       </Link>
@@ -657,12 +657,12 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
                         {prompt.status}
                       </span>
 
-                      <span className="text-[0.625rem] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                      <span className="text-[0.625rem] font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-white/[0.08] px-2 py-0.5 rounded-md">
                         {prompt.model?.name}
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-500 truncate max-w-xl">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-xl">
                       {prompt.intent || prompt.originalPrompt}
                     </p>
                   </div>
@@ -697,7 +697,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
 
                     <Link
                       href={`/dashboard/${prompt.id}`}
-                      className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                      className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-white/[0.08] hover:bg-slate-200 dark:hover:bg-white/[0.15] text-slate-700 dark:text-slate-300 transition-colors"
                     >
                       Buka
                     </Link>
@@ -712,16 +712,16 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
       {/* Delete Confirmation Modal */}
       {deleteModal.isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4 animate-in zoom-in-95 duration-150">
+          <div className="bg-white dark:bg-[#0D1230] rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 dark:border-white/[0.1] space-y-4 animate-in zoom-in-95 duration-150">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
                 <AlertTriangle size={20} />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">
                   Hapus Prompt?
                 </h3>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                   {deleteModal.isBulk
                     ? `Apakah Anda yakin ingin menghapus ${selectedIds.length} prompt terpilih? Tindakan ini tidak dapat dibatalkan.`
                     : `Apakah Anda yakin ingin menghapus prompt "${deleteModal.title}"? Data yang dihapus tidak dapat dikembalikan.`}
@@ -733,7 +733,7 @@ export default function PromptListClient({ initialPrompts }: PromptListClientPro
               <button
                 disabled={isDeleting}
                 onClick={() => setDeleteModal({ isOpen: false })}
-                className="px-4 py-2 text-xs font-semibold rounded-xl text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all disabled:opacity-50"
+                className="px-4 py-2 text-xs font-semibold rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/[0.1] transition-all disabled:opacity-50"
               >
                 Batal
               </button>

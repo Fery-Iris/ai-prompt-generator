@@ -40,14 +40,14 @@ export default function FAQ() {
   return (
     <section id="faq" className="w-full flex flex-col font-sans">
       {/* Top Dark Section */}
-      <div className="bg-[#05051a] w-full py-32 flex items-center justify-center">
+      <div className="bg-[#05051a] dark:bg-gradient-to-b dark:from-[#0D1230] dark:to-[#1a1040] w-full py-32 flex items-center justify-center transition-colors duration-300">
         <h2 className="text-6xl sm:text-[5rem] font-normal text-white tracking-tight">
           FAQ
         </h2>
       </div>
 
-      {/* Bottom White Section */}
-      <div className="bg-white w-full py-16 sm:py-24">
+      {/* Bottom Section */}
+      <div className="bg-white dark:bg-[#110E2A] w-full py-16 sm:py-24 transition-colors duration-300">
         <div className="max-w-[50rem] mx-auto px-4 sm:px-6">
           <div className="flex flex-col gap-3">
             {faqs.map((faq, index) => {
@@ -55,23 +55,23 @@ export default function FAQ() {
               return (
                 <div 
                   key={index} 
-                  className="border border-[#e2e8f0] rounded-md bg-white transition-all duration-200"
+                  className="border border-[#e2e8f0] dark:border-white/[0.08] rounded-md bg-white dark:bg-white/[0.03] dark:backdrop-blur-sm transition-all duration-200"
                 >
                   <button 
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between px-6 py-5 text-left bg-white hover:bg-slate-50 transition-colors rounded-md"
+                    className="w-full flex items-center justify-between px-6 py-5 text-left bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-white/[0.05] transition-colors rounded-md"
                   >
-                    <span className="text-[0.9375rem] font-normal text-[#111111]">
+                    <span className="text-[0.9375rem] font-normal text-[#111111] dark:text-white/90">
                       {faq.question}
                     </span>
                     <ChevronDown 
                       size={18} 
-                      className={`text-[#94a3b8] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} 
+                      className={`text-[#94a3b8] dark:text-slate-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} 
                     />
                   </button>
                   
                   {isOpen && (
-                    <div className="px-6 pb-5 text-[#666666] text-[0.9375rem] leading-relaxed">
+                    <div className="px-6 pb-5 text-[#666666] dark:text-slate-400 text-[0.9375rem] leading-relaxed">
                       {faq.answer}
                     </div>
                   )}
