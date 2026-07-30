@@ -25,7 +25,7 @@ export default function Navbar() {
             <Link href="/login" className="hidden sm:inline-flex text-sm font-medium text-slate-600 hover:text-[var(--color-foreground)] transition-colors">
               Log in
             </Link>
-            <Link href="/signup" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[var(--color-foreground)] hover:bg-slate-800 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+            <Link href="/signup" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#1D4ED8] hover:bg-[#1E40AF] rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
               Get Started
             </Link>
           </div>
