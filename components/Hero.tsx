@@ -20,11 +20,11 @@ export default function Hero() {
   return (
     <>
       <section 
-        className="relative pt-16 pb-20 sm:pt-14 sm:pb-24 overflow-hidden hero-wave-section text-center min-h-[60vh] flex items-center" 
+        className="relative pt-16 pb-20 sm:pt-14 sm:pb-24 overflow-hidden hero-wave-section text-center min-h-screen flex items-center" 
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         onMouseMove={handleMouseMove}
       >
-        <div className="hero-wave" style={{ transform: `translate(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px)` }}>
+        <div className="hero-wave" style={{ transform: `scale(1.08) translate(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px)` }}>
           <span></span>
           <span></span>
           <span></span>

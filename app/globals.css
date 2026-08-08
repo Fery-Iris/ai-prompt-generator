@@ -199,8 +199,8 @@ html {
 
 @media (max-width: 768px) {
   .hero-wave span {
-    --wave-size: 200vh;
-    --wave-translate-y: -82%;
+    --wave-size: 300vh;
+    --wave-translate-y: -73%;
   }
 }
 
