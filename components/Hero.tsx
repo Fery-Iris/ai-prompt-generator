@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { useState, MouseEvent } from "react";
+import { motion } from "framer-motion";
 import VideoModal from "@/components/VideoModal";
 
 export default function Hero() {
@@ -59,18 +60,33 @@ export default function Hero() {
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
-          <div className="flex items-center justify-center gap-4 text-[0.9375rem] mb-8 mt-12 sm:mt-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center gap-4 text-[0.9375rem] mb-8 mt-12 sm:mt-16"
+          >
             <span className="text-black dark:text-white">All Rights Reserved</span>
             <span className="text-[#666666] dark:text-slate-400">© 2026 PromptGen</span>
-          </div>
+          </motion.div>
           
-          <h1 className="text-5xl sm:text-6xl md:text-[4.5rem] font-normal text-black dark:text-white tracking-tight mb-8 leading-[1.05]">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl sm:text-6xl md:text-[4.5rem] font-normal text-black dark:text-white tracking-tight mb-8 leading-[1.05]"
+          >
             Introducing AI Prompt Generator
-          </h1>
+          </motion.h1>
           
 
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          >
             <Link href="/signup" className="group flex items-center justify-center gap-2 px-6 py-3.5 text-base text-white bg-black hover:bg-[#333333] dark:bg-gradient-to-r dark:from-[#2563EB] dark:to-[#1D4ED8] dark:text-white dark:shadow-[0_0_20px_rgba(37,99,235,0.4)] dark:hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] rounded-full transition-all duration-300">
               Try AI Prompt Generator
               <ArrowUpRight size={18} strokeWidth={2} />
@@ -79,7 +95,7 @@ export default function Hero() {
               View Live Demo
               <ChevronRight size={18} strokeWidth={2} />
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
 

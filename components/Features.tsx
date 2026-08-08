@@ -1,4 +1,7 @@
+"use client";
+
 import { Lightbulb, Wand2, FlaskConical, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -35,21 +38,31 @@ export default function Features() {
   return (
     <section id="features" className="py-24 bg-white dark:bg-[#0D1230] relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <h2 className="text-4xl sm:text-5xl font-normal text-[#111111] dark:text-white mb-4">
             Method
           </h2>
           <p className="text-lg text-[#666666] dark:text-slate-400">
             A comprehensive suite of tools designed to streamline your prompt engineering workflow and boost productivity.
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div 
+              <motion.div 
                 key={index} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative p-8 rounded-2xl bg-[#fafafa] dark:bg-white/[0.03] dark:backdrop-blur-sm border border-slate-100 dark:border-white/[0.08] hover:border-slate-200 dark:hover:border-white/[0.15] hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-[#D946EF]/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${feature.bgColor} ${feature.color}`}>
@@ -61,7 +74,7 @@ export default function Features() {
                 <p className="text-[#666666] dark:text-slate-400 leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

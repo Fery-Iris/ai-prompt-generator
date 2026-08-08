@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -41,9 +42,15 @@ export default function FAQ() {
     <section id="faq" className="w-full flex flex-col font-sans">
       {/* Top Dark Section */}
       <div className="bg-[#05051a] dark:bg-gradient-to-b dark:from-[#0D1230] dark:to-[#1a1040] w-full py-32 flex items-center justify-center transition-colors duration-300">
-        <h2 className="text-6xl sm:text-[5rem] font-normal text-white tracking-tight">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-6xl sm:text-[5rem] font-normal text-white tracking-tight"
+        >
           FAQ
-        </h2>
+        </motion.h2>
       </div>
 
       {/* Bottom Section */}
@@ -53,8 +60,12 @@ export default function FAQ() {
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div 
-                  key={index} 
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                   className="border border-[#e2e8f0] dark:border-white/[0.08] rounded-md bg-white dark:bg-white/[0.03] dark:backdrop-blur-sm transition-all duration-200"
                 >
                   <button 
@@ -75,7 +86,7 @@ export default function FAQ() {
                       {faq.answer}
                     </div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
           </div>
