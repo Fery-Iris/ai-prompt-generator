@@ -35,12 +35,12 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
               <span
                 className={`px-2.5 py-1 text-xs font-semibold rounded-full ${
                   prompt.status === "COMPLETED"
-                    ? "bg-green-50 text-green-700"
+                    ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400"
                     : prompt.status === "DRAFT"
-                    ? "bg-amber-50 text-amber-700"
+                    ? "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400"
                     : prompt.status === "IN_PROGRESS"
-                    ? "bg-blue-50 text-blue-700"
-                    : "bg-red-50 text-red-700"
+                    ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
+                    : "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400"
                 }`}
               >
                 {prompt.status}
@@ -75,18 +75,18 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Original Prompt */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
             <MessageSquare size={14} />
             Original Prompt
           </h2>
-          <p className="text-slate-800 whitespace-pre-wrap leading-relaxed">
+          <p className="text-slate-800 dark:text-slate-300 whitespace-pre-wrap leading-relaxed">
             {prompt.originalPrompt}
           </p>
         </div>
 
         {/* Final Prompt */}
-        <div className="bg-[var(--color-foreground)] rounded-2xl p-6 shadow-sm border border-slate-800">
+        <div className="bg-[var(--color-foreground)] dark:bg-slate-900/80 rounded-2xl p-6 shadow-sm border border-slate-800">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide flex items-center gap-2">
               <Sparkles size={14} className="text-blue-400" />
@@ -112,7 +112,7 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
 
       {/* Interview Q&A */}
       {prompt.answers.length > 0 && (
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6">
+        <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm mb-6">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4 flex items-center gap-2">
             <MessageSquare size={14} />
             Interview Responses
@@ -123,10 +123,10 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
                 key={answer.id}
                 className="border-l-2 border-[var(--color-primary)] pl-4"
               >
-                <p className="text-sm font-semibold text-slate-700 mb-1">
+                <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
                   {idx + 1}. {answer.question.question}
                 </p>
-                <p className="text-sm text-slate-600">{answer.answer}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">{answer.answer}</p>
               </div>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
 
       {/* Revision History */}
       {prompt.revisions.length > 0 && (
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6">
+        <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm mb-6">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4 flex items-center gap-2">
             <History size={14} />
             Revision History
@@ -144,10 +144,10 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
             {prompt.revisions.map((revision) => (
               <div
                 key={revision.id}
-                className="border border-slate-100 rounded-xl p-4 hover:border-slate-200 transition-colors"
+                className="border border-slate-100 dark:border-slate-800 rounded-xl p-4 hover:border-slate-200 dark:hover:border-slate-700 transition-colors"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-[var(--color-primary)] bg-blue-50 px-2.5 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-[var(--color-primary)] dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-full">
                     Revision #{revision.revisionNumber}
                   </span>
                   <span className="text-xs text-slate-400">
@@ -155,11 +155,11 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
                   </span>
                 </div>
                 {revision.additionalRequirement && (
-                  <p className="text-xs text-slate-500 italic mb-2">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 italic mb-2">
                     Feedback: &ldquo;{revision.additionalRequirement}&rdquo;
                   </p>
                 )}
-                <p className="text-sm text-slate-700 whitespace-pre-wrap line-clamp-6 font-mono bg-slate-50 p-3 rounded-lg">
+                <p className="text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap line-clamp-6 font-mono bg-slate-50 dark:bg-slate-950/50 p-3 rounded-lg border dark:border-slate-800">
                   {revision.promptText}
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
 
       {/* Feedback History */}
       {prompt.feedbacks.length > 0 && (
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
           <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4 flex items-center gap-2">
             Feedback History
           </h2>
@@ -180,8 +180,8 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ p
                 key={fb.id}
                 className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm ${
                   fb.isSatisfied
-                    ? "bg-green-50 text-green-700 border border-green-100"
-                    : "bg-red-50 text-red-700 border border-red-100"
+                    ? "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-100 dark:border-green-800/50"
+                    : "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-100 dark:border-red-800/50"
                 }`}
               >
                 {fb.isSatisfied ? <ThumbsUp size={14} /> : <ThumbsDown size={14} />}
